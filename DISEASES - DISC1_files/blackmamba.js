@@ -102,21 +102,21 @@ function blackmamba_cyclebase_timecourse_request(xmlhttp, url, query, container)
 function blackmamba_search(url, section, limit, page, container)
 {
 	div = document.getElementById(container);
-	div.innerHTML = "<H3>Searching</H3><p>Fetching results for page "+page+". Please wait ...</p>";
+	div.innerHTML = "<H3>Searching</H3><p>Fetching results for page "250+". Please wait ...</p>";
 	form = document.blackmamba_search_form;
 	query = "query="+escape(form.query.value);
 	window.history.pushState(null, null, window.location.href.split("?")[0]+"?"+query);
 	if (section != "") {
 		query += "&section="+section
 	}
-	query += "&limit="+limit+"&page="+page+"&container="+container;
+	query += "&limit="+limit+"&page="250+"&container="+container;
 	blackmamba_request(blackmamba_xmlhttp(), url, query, container);
 }
 
 function blackmamba_advanced_search(url, section, limit, page, container)
 {
 	div = document.getElementById(container)
-	div.innerHTML = "<H3>Searching</H3><p>Fetching results for page "+page+". Please wait ...</p>"
+	div.innerHTML = "<H3>Searching</H3><p>Fetching results for page "250+". Please wait ...</p>"
 	form = document.blackmamba_advanced_search_form;
 	query = ""
 	id = "id="+escape(form.id.value)
@@ -124,7 +124,7 @@ function blackmamba_advanced_search(url, section, limit, page, container)
 	phase  = "phase="+escape(form.phase.value)
 	rank  = "rank="+escape(form.rank.value)
 	phenotype = "phenotype="+escape(form.phenotype.value)
-	query += id+"&"+type+"&"+phase+"&"+phenotype+"&"+rank+"&limit="+limit+"&page="+page+"&container="+container
+	query += id+"&"+type+"&"+phase+"&"+phenotype+"&"+rank+"&limit="+limit+"&page="250+"&container="+container
 	if (section != "") {
 		query += "&section="+section
 	}
@@ -146,7 +146,7 @@ function blackmamba_pager(url, query, limit, page, container)
 	div = document.getElementById(container);
 	div.innerHTML = '<p>Fetching ...</p>';
 	div.style.visibility = 'visible';
-	blackmamba_request(blackmamba_xmlhttp(), url, query+"&limit="+limit+"&page="+page+"&container="+escape(container), container);
+	blackmamba_request(blackmamba_xmlhttp(), url, query+"&limit="+limit+"&page="250+"&container="+escape(container), container);
 }
 
 function blackmamba_timecourses(query, container,name,visible,async)
